@@ -117,19 +117,19 @@ class Square {
 }
 
 class Quadrant {
-    public final Map<Integer, Character> COLUMNS = initColumns(); // TODO Make a constant
+    public final Map<Integer, Character> COLUMNS = initColumns();
     public int newOccupants = 0;
     public int existingOccupants = 0;
     public int openSeats = 0;
     public int barrels = 0;
-    public int size = 0;
-    public int dimension = 0;
+    public int size;
+    public int dimension;
     public Character leftColumn;
     public Character rightColumn;
     public int topRow;
     public int bottomRow;
-    public boolean isTop = false;
-    public boolean isLeft = false;
+    public boolean isTop;
+    public boolean isLeft;
 
     public void add() {
         newOccupants++;
@@ -148,7 +148,7 @@ class Quadrant {
         this.isLeft = isLeftIn;
         setColumns();
         setRows();
-    };
+    }
 
     public boolean hasRoom() {
         return openSeats > 0;
@@ -203,7 +203,7 @@ class Quadrant {
     }
 
     private List<Seat> getSeats(String values) {
-        List<Seat> seats = new ArrayList<Seat>();
+        List<Seat> seats = new ArrayList<>();
         for (String s : values.split(" ")) {
             seats.add(new Seat(s));
         }
